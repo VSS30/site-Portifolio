@@ -1,0 +1,10 @@
+server {
+    listen 443 ssl;
+    listen 80;
+    server_name site-Portifolio.e-li.me ;
+
+location / {
+  include proxy_params;
+  proxy_pass http://unix:/home/ubuntu/site-Portifolio/app.sock;
+    }
+}

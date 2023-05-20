@@ -1,0 +1,16 @@
+[Unit]
+Description=uWSGI instance to serve site-Portifolio
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/site-Portifolio
+Environment="PATH=/home/ubuntu/site-Portifolio/venv/bin"
+ExecStart=/home/ubuntu/site-Portifolio/venv/bin/gunicorn --workers 3 --bind unix:app.sock -m 007 app:app
+
+[Install]
+WantedBy=multi-user.target
+
+
+
